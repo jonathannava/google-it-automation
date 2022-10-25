@@ -4,6 +4,7 @@ import json
 import locale
 import sys
 import collections
+import reports
 
 
 def load_data(filename):
@@ -73,9 +74,14 @@ def main(argv):
   summary = process_data(data)
   print(summary)
   # TODO: turn this into a PDF report
-  
+  report_file = "/tmp/cars.pdf"
+  title = "Cars sales report"
+  info = "<br/>".join(summary)
+  table = cars_dict_to_table(data)
+  reports.generate(report_file, title, info, table)
 
   # TODO: send the PDF report as an email attachment
+
 
 
 if __name__ == "__main__":
