@@ -5,6 +5,8 @@ import locale
 import sys
 import collections
 import reports
+import emails
+import os
 
 
 def load_data(filename):
@@ -39,10 +41,8 @@ def process_data(data):
     # TODO: also handle max sales
     if item["total_sales"] > max_sales["total_sales"]:
       max_sales = item
-      popular_car[item["car"]["car_year"]] += item["total_sales"]
-      #print(popular_car.values())
-
-      
+    popular_car[item["car"]["car_year"]] += item["total_sales"]
+    #print(popular_car.values())     
       
 
     # TODO: also handle most popular car_year
@@ -53,7 +53,7 @@ def process_data(data):
   summary = [
     "The {} generated the most revenue: ${}".format(
       format_car(max_revenue["car"]), max_revenue["revenue"]),
-      "The {} had the most sales: {}".format(max_sales["car"]["car_model"], max_sales["total_sales"]),
+      "The {} had the most sales: {}".format(format_car(max_sales["car"]), max_sales["total_sales"]),
       "The most popular year was {} with {} sales.".format(most_popular_car_year,max_sale)
   ]
 
@@ -75,12 +75,19 @@ def main(argv):
   print(summary)
   # TODO: turn this into a PDF report
   report_file = "/tmp/cars.pdf"
-  title = "Cars sales report"
+  title = "Sales summary for last month"
   info = "<br/>".join(summary)
   table = cars_dict_to_table(data)
   reports.generate(report_file, title, info, table)
 
   # TODO: send the PDF report as an email attachment
+  sender = "automation@example.com"
+  recipient = "{}@example.com".format(os.environ.get('USER'))
+  subject = "Sales summary for last month"
+  body = "\n".join(summary)
+  path = "/tmp/cars.pdf"
+  message = emails.generate(sender, recipient, subject, body, path)
+  emails.send(message)
 
 
 
