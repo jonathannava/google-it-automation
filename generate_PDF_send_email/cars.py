@@ -46,8 +46,7 @@ def process_data(data):
 
     # TODO: also handle most popular car_year
     max_sale = max(popular_car.values())
-    most_popular_car_year = max(popular_car, key=popular_car.get)
-    
+    most_popular_car_year = max(popular_car, key=popular_car.get)    
     
 
   summary = [
