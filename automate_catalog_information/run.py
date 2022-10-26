@@ -19,6 +19,7 @@ for file in descriptions:
     with open(descriptions_path + file, 'r') as f:
         file_data = f.read()
         lines = file_data.split('\n')
+        data["name"]=lines[0]
         data["image_name"]=(file.strip('.txt'))+'.jpeg'
         print(data)
 
