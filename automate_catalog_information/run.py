@@ -14,10 +14,17 @@ descriptions = os.listdir(descriptions_path)
 images = [file for file in os.listdir(images_path) if file.endswith(('jpeg'))]
 #print(images)
 #print(descriptions)
-
+data = {}
 for file in descriptions:
     with open(descriptions_path + file, 'r') as f:
-        line = f.readlines()
+        file_data = f.read()
+        lines = file_data.split('\n')
+        data["image_name"]=(file.strip('.txt'))+'.jpeg'
+        print(data)
+
+
+        #print(jsonStr)
+        #print(type(jsonStr))
         
 
 
