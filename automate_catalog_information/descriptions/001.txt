@@ -1,0 +1,1 @@
+{"name": "Test Fruit 1", "weight": 100, "description": "This is the description of my test fruit 1", "image_name": "ic_add_location_white_48dp.jpeg"}

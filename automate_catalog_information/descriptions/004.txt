@@ -1,0 +1,1 @@
+{"name": "Test Fruit 4", "weight": 100, "description": "This is the description of my test fruit 4", "image_name": "ic_directions_bike_black_48dp.jpeg"}
