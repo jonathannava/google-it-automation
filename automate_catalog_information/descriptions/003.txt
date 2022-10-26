@@ -1,1 +1,3 @@
-{"name": "Test Fruit 3", "weight": 100, "description": "This is the description of my test fruit 3", "image_name": "ic_beenhere_white_48dp.jpeg"}
+Blackberry
+150 lbs
+Blackberries have high nutritional value and are excellent fruit for health. It’s rich in nutrients, various amino acids and trace elements necessary for the human body. They are good at promoting blood coagulation, delaying aging, improving immunity and reducing blood pressure and blood lipids. Blackberries can be consumed directly as fruit or made into jam and fruit wine.
