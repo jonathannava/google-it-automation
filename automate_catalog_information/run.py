@@ -20,6 +20,7 @@ for file in descriptions:
         file_data = f.read()
         lines = file_data.split('\n')
         data["name"]=lines[0]
+        data["weight"]=int(lines[1].strip('lbs'))
         data["image_name"]=(file.strip('.txt'))+'.jpeg'
         print(data)
 
