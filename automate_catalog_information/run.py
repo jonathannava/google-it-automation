@@ -23,13 +23,18 @@ for file in descriptions:
         data["weight"]=int(lines[1].strip('lbs'))
         data["description"]=lines[2]
         data["image_name"]=(file.strip('.txt'))+'.jpeg'
-        print(data)
+        try:
+            res = requests.post(url, json=data)
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
+        
+        
 
 
         #print(jsonStr)
         #print(type(jsonStr))
         
-
+#requests.post('https://httpbin.org/post', json={'id': 1, 'name': 'Jessa'})
 
 
 
