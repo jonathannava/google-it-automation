@@ -21,6 +21,7 @@ for file in descriptions:
         lines = file_data.split('\n')
         data["name"]=lines[0]
         data["weight"]=int(lines[1].strip('lbs'))
+        data["description"]=lines[2]
         data["image_name"]=(file.strip('.txt'))+'.jpeg'
         print(data)
 
