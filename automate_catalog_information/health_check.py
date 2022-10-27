@@ -5,7 +5,7 @@ import shutil
 import psutil
 import socket
 from emails import generate_error_report, send_email
-
+error_message =''
 def check_cpu_usage():
     """Verifies that there's enough unused CPU"""
     usage = psutil.cpu_percent(1)
@@ -41,7 +41,7 @@ else:
 if __name__ == "__main__":
 
     sender = "automation@example.com"
-    receiver = "user@example.com".format(os.environ.get('USER'))
+    receiver = "{}@example.com".format(os.environ.get('USER'))
     subject = "Error - {}".format(error_message)
     body = "Please check your system and resolve the issue as soon as possible"
     message = generate_error_report(sender, receiver, subject, body)

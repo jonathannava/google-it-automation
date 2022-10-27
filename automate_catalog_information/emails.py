@@ -28,3 +28,12 @@ def send_email(message):
         mail_server.quit()
     except SMTPException:
         print("Error: unable to send email")
+
+def generate_error_report(sender, recipient, subject, body):
+  message = email.message.EmailMessage()
+  message["From"] = sender
+  message["To"] = recipient
+  message["Subject"] = subject
+  message.set_content(body)
+ 
+  return message
