@@ -1,6 +1,7 @@
 import reports
 import os 
 import datetime
+import emails
 
 descriptions_path = 'descriptions/'
 
@@ -20,9 +21,16 @@ def summary_pdf(data):
     return (report)
 
 if __name__ == "__main__":
-
+    #Generate PDF Report
     summary = summary_pdf(data)
     paragraph = "<br/><br/>".join(summary)
     title = "Processed Update on {}\n".format(datetime.date.today().strftime("%B %d, %Y"))
     attachment = "reports/processed.pdf"
     reports.generate_report(attachment, title, paragraph)
+    #Send email
+    subject = "Upload Completed - Online Fruit Store"
+    sender = "automation@example.com"
+    receiver = "user@example.com"
+    body = "All fruits are uploaded to our website successfully. A detailed list is attached to this email."
+    message = emails.generate_email(sender, receiver, subject, body, attachment)
+    emails.send_email(message)
