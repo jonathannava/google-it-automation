@@ -41,7 +41,7 @@ else:
 if __name__ == "__main__":
 
     sender = "automation@example.com"
-    receiver = "user@example.com"
+    receiver = "user@example.com".format(os.environ.get('USER'))
     subject = "Error - {}".format(error_message)
     body = "Please check your system and resolve the issue as soon as possible"
     message = generate_error_report(sender, receiver, subject, body)
