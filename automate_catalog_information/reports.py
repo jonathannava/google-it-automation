@@ -5,7 +5,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 def generate_report(file, title, add_info):
     styles = getSampleStyleSheet()
-    report = SimpleDocTemplate(filename)
+    report = SimpleDocTemplate(file)
     report_title = Paragraph(title, styles['h1'])
     report_info = Paragraph(add_info, styles['Normal'])
     empty_line = Spacer(1,20)
