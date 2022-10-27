@@ -38,4 +38,12 @@ elif not check_localhost():
 else:
     pass
 
+if __name__ == "__main__":
+
+    sender = "automation@example.com"
+    receiver = "user@example.com"
+    subject = "Error - {}".format(error_message)
+    body = "Please check your system and resolve the issue as soon as possible"
+    message = generate_error_report(sender, receiver, subject, body)
+    send_email(message)
 
