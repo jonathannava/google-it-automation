@@ -27,4 +27,4 @@ def send_email(message):
         mail_server.send_message(message)
         mail_server.quit()
     except SMTPException:
-        print "Error: unable to send email"
+        print("Error: unable to send email")

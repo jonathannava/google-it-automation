@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+
 import reports
 import os 
 import datetime
 import emails
 
-descriptions_path = 'descriptions/'
+descriptions_path = 'supplier-data/descriptions/'
 
 descriptions = os.listdir(descriptions_path)
 
@@ -25,7 +27,7 @@ if __name__ == "__main__":
     summary = summary_pdf(data)
     paragraph = "<br/><br/>".join(summary)
     title = "Processed Update on {}\n".format(datetime.date.today().strftime("%B %d, %Y"))
-    attachment = "reports/processed.pdf"
+    attachment = "/tmp/processed.pdf"
     reports.generate_report(attachment, title, paragraph)
     #Send email
     subject = "Upload Completed - Online Fruit Store"
