@@ -4,51 +4,33 @@ import requests
 import os
 import json
 
-url = "http://localhost/upload/"
+def upload(url,descriptions_path):
+    images_path = 'images/'
+    descriptions = os.listdir(descriptions_path)
 
-images_path = 'images/'
-descriptions_path = 'descriptions/'
-
-descriptions = os.listdir(descriptions_path)
-
-images = [file for file in os.listdir(images_path) if file.endswith(('jpeg'))]
-#print(images)
-#print(descriptions)
-data = {}
-for file in descriptions:
-    with open(descriptions_path + file, 'r') as f:
-        file_data = f.read()
-        lines = file_data.split('\n')
-        data["name"]=lines[0]
-        data["weight"]=int(lines[1].strip('lbs'))
-        data["description"]=lines[2]
-        data["image_name"]=(file.strip('.txt'))+'.jpeg'
-        try:
-            res = requests.post(url, json=data)
-        except requests.exceptions.RequestException as e:
-            raise SystemExit(e)
+    images = [file for file in os.listdir(images_path) if file.endswith(('jpeg'))]
+    #print(images)
+    #print(descriptions)
+    data = {}
+    for file in descriptions:
+        with open(descriptions_path + file, 'r') as f:
+            file_data = f.read()
+            lines = file_data.split('\n')
+            data["name"]=lines[0]
+            data["weight"]=int(lines[1].strip('lbs'))
+            data["description"]=lines[2]
+            data["image_name"]=(file.strip('.txt'))+'.jpeg'
+            try:
+                res = requests.post(url, json=data)
+            except requests.exceptions.RequestException as e:
+                raise SystemExit(e)
+            
         
-        
+if __name__=='__main__':
+    url = 'http://localhost/fruits/'
+    user = os.getenv('USER')
+    descriptions_path = '/home/{}/supplier-data/descriptions/'.format(user)
+    upload(url,descriptions_path)
 
 
-        #print(jsonStr)
-        #print(type(jsonStr))
-        
-#requests.post('https://httpbin.org/post', json={'id': 1, 'name': 'Jessa'})
-
-
-
-#print(type(descriptions))
-
-#json_object = json.dumps(descriptions)
-
-#print(type(json_object))
-#print((json_object))
-
-#TODO:Write a Python script named run.py to process the text files (001.txt, 003.txt ...) from the supplier-data/descriptions directory. The script should turn the data into a JSON dictionary by adding all the required fields
-
-
-# for image in images:
-#     with open(path+image, 'rb') as upload_img:
-#         res = requests.post(url, files={'file': upload_img})
 
