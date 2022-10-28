@@ -2,6 +2,11 @@
 
 This six-course certificate, developed by **Google**, is designed to provide IT professionals with in-demand skills including **Python**, **Gi**t, and **IT automation** that can help them advance their careers. The hands-on curriculum is designed to teach learners how to write code in Python, with a special focus on how this applies to **automating tasks in the world of IT support and systems administration.**
 
+<p align="center" width="100%">
+    <a href="https://www.credly.com/badges/273d51ec-10a5-446a-b4a6-5b28644c3f2e/public_url" target="_blank"><img width="40%" src="https://user-images.githubusercontent.com/7119224/198068136-218bbe88-733c-49e3-8e85-542b2fb7755a.png"></a>
+</p>
+
+
 ## Automating Real-World Tasks with Python
 In the final course, we'll tie together the concepts that you’ve learned up until now. You'll tackle real-world scenarios in **Qwiklabs** that will challenge you to use multiple skills at once.
 
